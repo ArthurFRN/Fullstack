@@ -1,8 +1,6 @@
-package com.example.bibliotecaduoc.service;
+package futbol.partidos.proyectoFullstack.service;
 
-import com.example.bibliotecaduoc.dto.WeatherDTO;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
@@ -13,17 +11,17 @@ public class WeatherService {
     @Qualifier("weatherWebClient")
     private WebClient weatherWebClient;
 
-    
-    public WeatherDTO obtenerClima(double latitude, double longitude) {
+    public Object obtenerClima(double lat, double lon) {
+
         return weatherWebClient.get()
                 .uri(uriBuilder -> uriBuilder
                         .path("/v1/forecast")
-                        .queryParam("latitude", latitude)
-                        .queryParam("longitude", longitude)
+                        .queryParam("latitude", lat)
+                        .queryParam("longitude", lon)
                         .queryParam("current_weather", true)
                         .build())
                 .retrieve()
-                .bodyToMono(WeatherDTO.class)
+                .bodyToMono(Object.class)
                 .block();
     }
 }
