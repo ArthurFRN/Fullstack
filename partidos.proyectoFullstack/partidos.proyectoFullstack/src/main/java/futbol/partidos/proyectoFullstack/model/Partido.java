@@ -1,8 +1,12 @@
 package futbol.partidos.proyectoFullstack.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
-import lombok.*;
+import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
@@ -11,7 +15,6 @@ import lombok.*;
 public class Partido {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @NotBlank
@@ -21,17 +24,11 @@ public class Partido {
     private String equipoVisitante;
 
     @NotBlank
-    private String liga;
-
-    @NotBlank
-    private String fecha;
+    private String estadio;
 
     @NotBlank
     private String hora;
 
-    @NotBlank
-    private String estadio;
-
-    @NotBlank
-    private String estado;
+    @NotNull
+    private Integer fecha;
 }

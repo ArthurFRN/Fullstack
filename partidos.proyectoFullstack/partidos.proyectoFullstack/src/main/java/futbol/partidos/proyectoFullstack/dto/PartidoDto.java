@@ -1,6 +1,8 @@
 package futbol.partidos.proyectoFullstack.dto;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
@@ -8,8 +10,6 @@ import lombok.*;
 public class PartidoDto {
 
     private String partido;
-
-    private String horario;
-
+    private String hora;
     private String estadio;
 }

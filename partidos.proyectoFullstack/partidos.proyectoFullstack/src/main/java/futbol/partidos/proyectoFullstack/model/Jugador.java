@@ -1,29 +1,27 @@
 package futbol.partidos.proyectoFullstack.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@Table(name = "jugadores")
 public class Jugador {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @NotBlank
     private String nombre;
 
-    @NotNull
-    private Integer edad;
+    @NotBlank
+    private String posicion;
 
     @NotBlank
-    private String nacionalidad;
+    private String equipo;
 }
